@@ -210,7 +210,7 @@ class AbleSciAuto:
     def get_csrf_token(self):
         """获取CSRF令牌"""
         login_url = "https://www.ablesci.com/site/login"
-                try:
+        try:
             response = self.session.get(login_url, headers=self.headers, timeout=30)
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')
@@ -224,6 +224,7 @@ class AbleSciAuto:
         except Exception as e:
             self.log(f"获取CSRF令牌时出错: {str(e)}", "error")
         return ''
+
 
 
     def login(self):
